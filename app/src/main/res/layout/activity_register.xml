@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yourzeromax.zympro.UI.LoginActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_weight="8">
+
+        <Button
+            android:id="@+id/btn_zc"
+            style="@style/loginActivity_dimens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_btn"
+            android:text="@string/login"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/login_btn_text_size" />
+
+
+        <EditText
+            android:id="@+id/et_count"
+            style="@style/loginActivity_dimens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_password"
+            android:layout_marginBottom="8dp"
+            android:hint="请输入账号/手机号"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/loginActivity_dimens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/Linear"
+            android:layout_marginBottom="8dp"
+            android:hint="请设置密码"
+            android:inputType="textPassword"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:id="@+id/Linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_zc"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/loginActivity_dimens"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/btn_zc"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="2"
+                android:hint="请输入验证码"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_verification"
+                android:layout_width="0dp"
+                android:text="获取验证码"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/login_btn" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/et_count"
+            android:layout_alignStart="@id/et_count"
+            android:layout_marginBottom="@dimen/login_btn_text_size"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+</LinearLayout>

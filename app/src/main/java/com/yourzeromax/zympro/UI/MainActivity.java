@@ -1,6 +1,5 @@
-package com.yourzeromax.zympro;
+package com.yourzeromax.zympro.UI;
 
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +11,7 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.yourzeromax.zympro.Application.C;
+import com.yourzeromax.zympro.R;
 import com.yourzeromax.zympro.Utils.OkHttp3Utils;
 
 import java.io.IOException;
