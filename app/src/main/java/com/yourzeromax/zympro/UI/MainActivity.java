@@ -11,13 +11,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.yourzeromax.zympro.Adapter.HomeFragmentAdapter;
+import com.yourzeromax.zympro.NoScrollViewPager;
 import com.yourzeromax.zympro.R;
+import com.yourzeromax.zympro.UI.Fragment.BasicFragment;
+import com.yourzeromax.zympro.UI.Fragment.CommunityFragment;
+import com.yourzeromax.zympro.UI.Fragment.FunctionFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, BottomNavigationBar.OnTabSelectedListener {
     @Bind(R.id.tb_main)
     android.support.v7.widget.Toolbar mToolbar;
     @Bind(R.id.basic_user_icon)
@@ -26,7 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DrawerLayout mDrawerLayout;
     @Bind(R.id.nav_view)
     NavigationView mNavigationView;
+    @Bind(R.id.bottom_navigationbar)
+    BottomNavigationBar mBottomNavigationBar;
+    @Bind(R.id.view_pager)
+    NoScrollViewPager mViewPager;
 
+    HomeFragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void viewInit() {
         toolbarInit();
         listenerInit();
+        bottomNavigationBarInit();
+        fragmentInit();
     }
 
     private void toolbarInit() {
@@ -53,6 +67,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void listenerInit() {
         mUserIcon.setOnClickListener(this);
         mNavigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void bottomNavigationBarInit() {
+        mBottomNavigationBar.setMode(BottomNavigationBar.MODE_DEFAULT);
+        mBottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
+        mBottomNavigationBar
+                .addItem(new BottomNavigationItem(R.mipmap.error, "查询").setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.error, "社区").setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.error, "模块").setActiveColorResource(R.color.colorAccent))
+                .setFirstSelectedPosition(0)
+                .initialise();
+        mBottomNavigationBar.setTabSelectedListener(this);
+    }
+
+    private void fragmentInit() {
+        adapter = new HomeFragmentAdapter(getSupportFragmentManager(), this);
+        adapter.add(new BasicFragment());
+        adapter.add(new CommunityFragment());
+        adapter.add(new FunctionFragment());
+        mViewPager.setAdapter(adapter);
     }
 
     private void openDrawer() {
@@ -103,5 +137,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onTabSelected(int position) {
+        mViewPager.setCurrentItem(position, false);
+    }
+
+    @Override
+    public void onTabUnselected(int position) {
+
+    }
+
+    @Override
+    public void onTabReselected(int position) {
+
     }
 }

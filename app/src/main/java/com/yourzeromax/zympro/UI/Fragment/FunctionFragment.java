@@ -7,26 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yourzeromax.zympro.R;
-
 /**
- * Created by yourzeromax on 2017/11/5.
+ * Created by yourzeromax on 2017/11/6.
  */
 
-public class BasicFragment extends Fragment {
-    public BasicFragment() {
+public class FunctionFragment extends Fragment {
+    public FunctionFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_basic,null);
-        return view;
-    }
-
-    @Nullable
-    @Override
-    public View getView() {
-        return super.getView();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
