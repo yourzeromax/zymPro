@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</android.support.constraint.ConstraintLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="200dp">
+<de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/nav_user_icon"
+    android:layout_width="70dp"
+    android:layout_centerVertical="true"
+    android:layout_margin="20dp"
+    android:background="@mipmap/ic_launcher_round"
+    android:layout_height="70dp" />
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/nav_user_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="没头脑"
+        android:textColor="#ffffff"
+        android:textSize="20dp"/>
+    <TextView
+        android:background="@null"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="个性签名"
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
