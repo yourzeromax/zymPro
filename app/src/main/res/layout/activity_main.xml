@@ -27,7 +27,7 @@
                     android:id="@+id/basic_user_icon"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@mipmap/ic_launcher_round" />
+                    android:src="@mipmap/user_icon_toolbar" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -8,7 +8,7 @@
     android:layout_width="70dp"
     android:layout_centerVertical="true"
     android:layout_margin="20dp"
-    android:background="@mipmap/ic_launcher_round"
+    android:background="@mipmap/user_icon_big"
     android:layout_height="70dp" />
     <TextView
         android:layout_centerVertical="true"
@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="没头脑"
+        android:layout_marginStart="10dp"
         android:textColor="#ffffff"
         android:textSize="20dp"/>
     <TextView

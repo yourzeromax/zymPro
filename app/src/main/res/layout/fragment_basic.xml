@@ -12,10 +12,25 @@
         android:background="#ffffff">
 
         <View
+            android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="10dp"
             android:background="@drawable/search_shape" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:drawableEnd="@mipmap/icon_voice"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/icon_search"
+            android:gravity="center_vertical"
+            android:text="重庆大学"
+            android:textSize="17dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/ic_launcher"
+                android:drawableTop="@mipmap/basic_speciality"
                 android:gravity="center"
                 android:text="选专业" />
 
@@ -40,7 +55,7 @@
                 android:layout_marginEnd="40dp"
                 android:layout_toStartOf="@id/choose_speciality"
                 android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/ic_launcher"
+                android:drawableTop="@mipmap/basic_schools"
                 android:gravity="center"
                 android:text="查高校" />
 
@@ -51,7 +66,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_toEndOf="@id/choose_speciality"
                 android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/ic_launcher"
+                android:drawableTop="@mipmap/basic_score"
                 android:gravity="center"
                 android:text="查高校" />
         </RelativeLayout>
@@ -83,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@mipmap/ic_launcher_round"
+                    android:drawableStart="@mipmap/basic_recommend"
                     android:gravity="center_vertical"
                     android:text="智能推荐" />
 
@@ -109,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@mipmap/ic_launcher_round"
+                    android:drawableStart="@mipmap/basic_policy"
                     android:gravity="center_vertical"
                     android:text="政策解读" />
 
@@ -142,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@mipmap/ic_launcher_round"
+                    android:drawableStart="@mipmap/basic_special"
                     android:gravity="center_vertical"
                     android:text="特殊招生" />
 
@@ -168,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:drawablePadding="20dp"
-                    android:drawableStart="@mipmap/ic_launcher_round"
+                    android:drawableStart="@mipmap/basic_word"
                     android:gravity="center_vertical"
                     android:text="名词解释" />
 

@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBottomNavigationBar.setMode(BottomNavigationBar.MODE_DEFAULT);
         mBottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
         mBottomNavigationBar
-                .addItem(new BottomNavigationItem(R.mipmap.error, "查询").setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.error, "社区").setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.error, "模块").setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_find, "查询").setActiveColorResource(R.color.basic))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_community, "社区").setActiveColorResource(R.color.basic))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_function, "模块").setActiveColorResource(R.color.basic))
                 .setFirstSelectedPosition(0)
                 .initialise();
         mBottomNavigationBar.setTabSelectedListener(this);
@@ -129,11 +129,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_about:
+            case R.id.action_help:
                 Toast.makeText(this, "about", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_icon:
-                Toast.makeText(this, "icon", Toast.LENGTH_SHORT).show();
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

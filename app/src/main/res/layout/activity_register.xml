@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/second"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.yourzeromax.zympro.UI.LoginActivity">
@@ -83,7 +84,7 @@
             android:layout_above="@id/et_count"
             android:layout_alignStart="@id/et_count"
             android:layout_marginBottom="@dimen/login_btn_text_size"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/logo" />
     </RelativeLayout>
 
     <RelativeLayout

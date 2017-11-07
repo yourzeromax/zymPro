@@ -63,7 +63,7 @@
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:layout_margin="20dp"
-                    android:background="@mipmap/ic_launcher_round" />
+                    android:background="@mipmap/user_icon_big" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
         <TextView
             android:layout_below="@id/btn_login_again"
             android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:textColor="@color/colorAccent"
             android:layout_centerHorizontal="true"
             android:text="切换账号"
