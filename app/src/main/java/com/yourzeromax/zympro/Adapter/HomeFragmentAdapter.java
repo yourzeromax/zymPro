@@ -1,9 +1,12 @@
 package com.yourzeromax.zympro.Adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.yourzeromax.zympro.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,7 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
             return fragments.get(position);
         } else {
             return null;
+
         }
     }
 

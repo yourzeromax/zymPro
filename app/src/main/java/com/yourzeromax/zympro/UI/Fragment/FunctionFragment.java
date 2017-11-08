@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yourzeromax.zympro.R;
+
 /**
  * Created by yourzeromax on 2017/11/6.
  */
@@ -18,6 +20,7 @@ public class FunctionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_function, null);
+        return view;
     }
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/second"
+    android:background="@mipmap/backgroud_login"
     tools:context="com.yourzeromax.zympro.UI.LoginActivity">
 
     <RelativeLayout
@@ -52,6 +52,9 @@
             android:layout_above="@id/et_password"
             android:layout_marginBottom="8dp"
             android:hint="请输入账号/手机号"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             android:singleLine="true" />
 
         <EditText
@@ -60,6 +63,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/btn_login"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             android:layout_marginBottom="8dp"
             android:hint="请输入密码"
             android:inputType="textPassword"
@@ -93,6 +99,7 @@
             <TextView
                 android:id="@+id/tv_thirdLogin"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/third_login" />
@@ -112,6 +119,7 @@
                 android:layout_toStartOf="@id/weixin"
                 android:drawableTop="@mipmap/qq"
                 android:text="@string/QQ"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -119,6 +127,7 @@
                 android:id="@+id/weixin"
                 android:drawableTop="@mipmap/wechat"
                 android:text="@string/weixin"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
@@ -126,6 +135,7 @@
             <TextView
                 android:drawableTop="@mipmap/weibo"
                 android:text="@string/weibo"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_marginStart="@dimen/login_third_dimen"
                 android:layout_centerVertical="true"

@@ -16,19 +16,23 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".UI.MainActivity"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustPan">
+
         </activity>
         <activity
             android:name=".UI.LoginActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".UI.RegisterActivity" />
         <activity android:name=".UI.TestActivity" />
+        <activity android:name=".UI.RefreshActivity">
+
+        </activity>
     </application>
 
 </manifest>

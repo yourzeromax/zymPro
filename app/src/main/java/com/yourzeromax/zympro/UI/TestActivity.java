@@ -3,7 +3,6 @@ package com.yourzeromax.zympro.UI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,11 +15,12 @@ import com.yourzeromax.zympro.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TestActivity extends AppCompatActivity implements View.OnClickListener{
+public class TestActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
-@Bind(R.id.btn_login_again)
+    @Bind(R.id.btn_login_again)
     Button btnLoginAgain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
-    private void listenerInit(){
+    private void listenerInit() {
         btnLoginAgain.setOnClickListener(this);
     }
 
@@ -65,7 +65,8 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intet = new Intent(TestActivity.this,MainActivity.class);
+        Intent intet = new Intent(TestActivity.this, MainActivity.class);
         startActivity(intet);
+        finish();
     }
 }

@@ -16,19 +16,34 @@ import com.yourzeromax.zympro.R;
  */
 
 public class BasicFragment extends Fragment {
-    TextView tvshow;
+    TextView tvShow1, tvShow2, tvShow3;
+
     public BasicFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_basic,null);
-        tvshow = (TextView)view.findViewById(R.id.choose_speciality);
-        tvshow.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_basic, null);
+        tvShow1 = (TextView) view.findViewById(R.id.check_schools);
+        tvShow2 = (TextView) view.findViewById(R.id.choose_speciality);
+        tvShow3 = (TextView) view.findViewById(R.id.check_score);
+        tvShow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "123", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "鱼", Toast.LENGTH_SHORT).show();
+            }
+        });
+        tvShow2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "智", Toast.LENGTH_SHORT).show();
+            }
+        });
+        tvShow3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "谋", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

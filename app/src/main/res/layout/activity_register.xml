@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/second"
     android:layout_height="match_parent"
+    android:background="@mipmap/backgroud_login"
     android:orientation="vertical"
     tools:context="com.yourzeromax.zympro.UI.LoginActivity">
 
@@ -30,6 +30,9 @@
 
         <EditText
             android:id="@+id/et_count"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             style="@style/loginActivity_dimens"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,6 +49,9 @@
             android:layout_above="@id/Linear"
             android:layout_marginBottom="8dp"
             android:hint="请设置密码"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             android:inputType="textPassword"
             android:singleLine="true" />
 
@@ -64,18 +70,21 @@
                 android:layout_marginBottom="8dp"
                 android:layout_weight="2"
                 android:hint="请输入验证码"
-                android:inputType="textPassword"
-                android:singleLine="true" />
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:theme="@style/MyEditText" />
 
             <Button
                 android:id="@+id/btn_verification"
                 android:layout_width="0dp"
-                android:text="获取验证码"
-                android:textSize="16dp"
-                android:textColor="#ffffff"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/login_btn" />
+                android:background="@drawable/login_btn"
+                android:text="获取验证码"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <ImageView
