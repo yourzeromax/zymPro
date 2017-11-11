@@ -2,6 +2,7 @@ package com.yourzeromax.zympro.MyViews;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,7 +17,7 @@ import com.yourzeromax.zympro.R;
  */
 
 public class RefreshLayout extends ViewGroup {
-
+    private static final String TAG = "RefreshLayout";
     View mHeaderLayout;
     View mContentLayout;
     View mFootLayout;
@@ -96,6 +97,7 @@ public class RefreshLayout extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG, "onTouchEvent: ");
         int y = (int) event.getY();
         int dy;
         switch (event.getAction()) {
