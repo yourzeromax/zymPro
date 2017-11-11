@@ -5,5 +5,8 @@ package com.yourzeromax.zympro.Application;
  */
 
 public class C {
-    public static final String URL="http://www.kaodaxue.xin/KaoDaXue/getInfo";
+    public static final String URL="http://www.kaodaxue.xin/KaoDaXue/getInfo";//大学列表
+    public static final String URL_VERSION="http://www.kaodaxue.xin/KaoDaXue/queryDBVersion"; //版本号地址
+    public static final String URL_Community="http://www.kaodaxue.xin/KaoDaXue/getCommunityInfo"; //贴吧的例子
+
 }
