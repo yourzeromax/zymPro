@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -26,8 +28,12 @@ public class RefreshLayout extends ViewGroup {
     int mHeaderHeight;
 
     Scroller mScroller;
+    TextView headerTextView;
+    ListView contentListView;
 
-    TextView textView;
+    boolean isTop = false;
+
+    OnRefreshListener onRefreshListener;
 
     public RefreshLayout(Context context) {
         super(context);
@@ -41,6 +47,7 @@ public class RefreshLayout extends ViewGroup {
         mScroller = new Scroller(getContext());
         initViews();
         findViews();
+        listViewInit();
     }
 
     private void initViews() {
@@ -54,8 +61,37 @@ public class RefreshLayout extends ViewGroup {
         mFootLayout.setLayoutParams(headerparams);
     }
 
-    private void findViews(){
-        textView = (TextView)mHeaderLayout.findViewById(R.id.tv_view);
+    private void findViews() {
+        headerTextView = (TextView) mHeaderLayout.findViewById(R.id.tv_view);
+        contentListView = (ListView) mContentLayout.findViewById(R.id.content_listView);
+    }
+
+    private void listViewInit() {
+        String[] strings = new String[20];
+        for (int i = 0; i < 20; i++) {
+            strings[i] = "重庆大学";
+        }
+        ArrayAdapter adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_expandable_list_item_1, strings);
+        contentListView.setAdapter(adapter);
+        mContentLayout.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (contentListView.getFirstVisiblePosition() == 0) {
+                    int mostTop = (getChildCount() > 0) ? contentListView.getChildAt(0)
+                            .getTop() : 0;
+                    if (mostTop >= 0) {
+                        isTop = true;
+                        return true;
+                    }
+                }
+                isTop = false;
+                return false;
+            }
+        });
+    }
+
+    public void setOnRefreshListener(OnRefreshListener refreshListener) {
+        this.onRefreshListener = refreshListener;
     }
 
     @Override
@@ -96,6 +132,33 @@ public class RefreshLayout extends ViewGroup {
     int mLastY;
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_CANCEL:
+            case MotionEvent.ACTION_UP:
+                return false;
+            case MotionEvent.ACTION_DOWN:
+                mLastY = (int) ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int dy = (int) ev.getY() - mLastY;
+                if (isTop() && dy > 0) {
+                    return true;
+                }
+                break;
+        }
+        return false;
+    }
+
+    private boolean isTop() {
+        return contentListView.getFirstVisiblePosition() == 0 && contentListView.getChildAt(0).getTop() == 0 && getScrollY() <= mHeaderLayout.getMeasuredHeight();
+    }
+
+    private boolean isBottom(){
+        return contentListView.getLastVisiblePosition()==contentListView.getAdapter().getCount()-1;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.d(TAG, "onTouchEvent: ");
         int y = (int) event.getY();
@@ -105,11 +168,11 @@ public class RefreshLayout extends ViewGroup {
                 break;
             case MotionEvent.ACTION_MOVE:
                 dy = y - mLastY;
-                scrollBy(0, -dy / 3);
-                if(getScrollY()<mHeaderHeight/2){
-                    textView.setText("松开刷新");
-                }else {
-                    textView.setText("下拉刷新");
+                scrollBy(0, -dy / 2);
+                if (getScrollY() < mHeaderHeight / 2) {
+                    headerTextView.setText("松开刷新");
+                } else {
+                    headerTextView.setText("下拉刷新");
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -128,5 +191,9 @@ public class RefreshLayout extends ViewGroup {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
         }
+    }
+
+    interface OnRefreshListener<T> {
+        public T onrefresh();
     }
 }
