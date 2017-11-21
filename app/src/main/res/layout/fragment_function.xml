@@ -37,7 +37,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:drawablePadding="5dp"
-            android:drawableTop="@mipmap/function_sport"
+            android:drawableTop="@mipmap/function_banner_sport"
             android:gravity="center"
             android:text="运动"
             android:textSize="20dp" />
@@ -51,7 +51,7 @@
             android:layout_marginTop="30dp"
             android:drawablePadding="5dp"
             android:layout_marginEnd="40dp"
-            android:drawableTop="@mipmap/function_read"
+            android:drawableTop="@mipmap/function_banner_read"
             android:gravity="center"
             android:text="阅读"
             android:textSize="20dp" />
@@ -63,7 +63,7 @@
             android:layout_marginTop="30dp"
             android:drawablePadding="5dp"
             android:layout_marginStart="40dp"
-            android:drawableTop="@mipmap/function_read"
+            android:drawableTop="@mipmap/function_banner_news"
             android:gravity="center"
             android:text="新闻"
             android:textSize="20dp" />

@@ -14,6 +14,8 @@ import com.yourzeromax.zympro.Adapter.CommunityRecyclerVIewAdapter;
 import com.yourzeromax.zympro.JavaBeans.Community;
 import com.yourzeromax.zympro.R;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,12 +50,8 @@ public class CommunityFragment extends Fragment {
     }
 
     private void recyclerViewInit() {
-        List<Community> communities = new ArrayList<>();
-        communities.add(new Community());
-        communities.add(new Community());
-        communities.add(new Community());
-        communities.add(new Community());
-        communities.add(new Community());
+        List<Community> communities = DataSupport.findAll(Community.class);
+
         CommunityRecyclerVIewAdapter adapter = new CommunityRecyclerVIewAdapter(getContext(), communities);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);

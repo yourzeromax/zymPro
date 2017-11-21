@@ -1,6 +1,7 @@
 package com.yourzeromax.zympro.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +12,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.yourzeromax.zympro.Application.C;
 import com.yourzeromax.zympro.R;
+import com.yourzeromax.zympro.Utils.NetUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +26,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     EditText etCount;
     @Bind(R.id.et_password)
     EditText etPassword;
+
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +41,34 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         ButterKnife.bind(this);
         btnLogin.setOnClickListener(this);
         editTextInit();
+        checkIsNeedUpdate();
     }
 
+
+    private void checkIsNeedUpdate() {
+        sharedPreferences = getSharedPreferences(MainActivity.VERSION_NAME, MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        NetUtils.getVersion(new NetUtils.VersionListener() {
+            @Override
+            public void saveVersion(float version) {
+                editor.putFloat("newVersion", version);
+                editor.apply();
+            }
+
+            @Override
+            public void isNeedUpdate() {
+                float nowVersion = sharedPreferences.getFloat("nowVersion", 0);
+                float newVersion = sharedPreferences.getFloat("newVersion", 0);
+                if (nowVersion < newVersion) {
+                    NetUtils.getCommunityFromNet(C.URL_Community);
+                    NetUtils.getSchoolsFromNet();
+                    editor.putFloat("nowVersion", newVersion);
+                    editor.apply();
+                }
+            }
+        });
+
+    }
 
     private void editTextInit() {
         etCount.addTextChangedListener(new TextWatcher() {

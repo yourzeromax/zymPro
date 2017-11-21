@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.yourzeromax.zympro.JavaBeans.Community;
 import com.yourzeromax.zympro.R;
 
@@ -49,10 +50,10 @@ public class CommunityRecyclerVIewAdapter extends RecyclerView.Adapter<Community
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Community community = communities.get(position);
-        holder.imageView_1.setBackground(context.getDrawable(R.drawable.ic_launcher_background));
-        holder.imageView_2.setBackground(context.getDrawable(R.drawable.ic_launcher_background));
-        holder.imageView_3.setBackground(context.getDrawable(R.drawable.ic_launcher_background));
-        holder.tvTitle.setText("高考可以加分的特长有哪些");
+        Glide.with(context).load(community.getPic_1()).into(holder.imageView_1);
+        Glide.with(context).load(community.getPic_2()).into(holder.imageView_2);
+        Glide.with(context).load(community.getPic_3()).into(holder.imageView_3);
+        holder.tvTitle.setText(community.getDescription());
     }
 
     @Override

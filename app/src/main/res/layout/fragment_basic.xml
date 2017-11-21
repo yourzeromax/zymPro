@@ -37,7 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
 
             <com.yourzeromax.zympro.MyViews.DrawableTextView
                 android:id="@+id/choose_speciality"
@@ -48,7 +50,7 @@
                 android:gravity="center"
                 android:text="选专业"
                 app:drawableLocation="top"
-                app:drawableSrc="@mipmap/basic_speciality"
+                app:drawableSrc="@mipmap/basic_banner_speciality"
                 app:drawable_height="80dp"
                 app:drawable_width="80dp" />
 
@@ -56,13 +58,12 @@
                 android:id="@+id/check_schools"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_toStartOf="@id/choose_speciality"
                 android:drawablePadding="10dp"
                 android:gravity="center"
+                android:layout_alignParentStart="true"
                 android:text="查高校"
                 app:drawableLocation="top"
-                app:drawableSrc="@mipmap/basic_schools"
+                app:drawableSrc="@mipmap/basic_banner_schools"
                 app:drawable_height="80dp"
                 app:drawable_width="80dp" />
 
@@ -70,13 +71,12 @@
                 android:id="@+id/check_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_toEndOf="@id/choose_speciality"
+                android:layout_alignParentEnd="true"
                 android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="省控线"
                 app:drawableLocation="top"
-                app:drawableSrc="@mipmap/basic_score"
+                app:drawableSrc="@mipmap/basic_banner_score"
                 app:drawable_height="80dp"
                 app:drawable_width="80dp" />
         </RelativeLayout>
@@ -199,9 +199,9 @@
                 <com.yourzeromax.zympro.MyViews.DrawableTextView
                     android:id="@+id/tv_word"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
                     android:drawablePadding="20dp"
                     android:gravity="center_vertical"
                     android:text="名词解释"

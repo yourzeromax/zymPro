@@ -1,5 +1,6 @@
 package com.yourzeromax.zympro.UI;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -13,11 +14,13 @@ import android.widget.Toast;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.yourzeromax.zympro.Adapter.HomeFragmentAdapter;
+import com.yourzeromax.zympro.Application.C;
 import com.yourzeromax.zympro.NoScrollViewPager;
 import com.yourzeromax.zympro.R;
 import com.yourzeromax.zympro.UI.Fragment.BasicFragment;
 import com.yourzeromax.zympro.UI.Fragment.CommunityFragment;
 import com.yourzeromax.zympro.UI.Fragment.FunctionFragment;
+import com.yourzeromax.zympro.Utils.NetUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,13 +42,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     HomeFragmentAdapter adapter;
 
+
+
+
+    public static final String VERSION_NAME = "version";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         viewInit();
+
     }
+
 
     private void viewInit() {
         toolbarInit();
@@ -93,6 +103,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             mDrawerLayout.openDrawer(GravityCompat.START);
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
