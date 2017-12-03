@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+
+
     <application
         android:name=".Application.MyApplication"
         android:allowBackup="true"
@@ -24,6 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="Mob-AppKey" android:value="2288e47cdcb70"/>
+        <meta-data android:name="Mob-AppSecret" android:value="5e8cab4c34fbf75f34fcfa6a0f6b03ee"/>
         <activity
             android:name=".UI.MainActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustPan">
