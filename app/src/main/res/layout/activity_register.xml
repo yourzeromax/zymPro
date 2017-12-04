@@ -23,7 +23,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/login_btn"
-            android:text="@string/login"
+            android:text="注册"
             android:textColor="#ffffff"
             android:textSize="@dimen/login_btn_text_size" />
 
@@ -63,6 +63,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/et_verification"
                 style="@style/loginActivity_dimens"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

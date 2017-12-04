@@ -6,11 +6,13 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.EventLog;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yourzeromax.zympro.Application.C;
 import com.yourzeromax.zympro.R;
@@ -18,6 +20,8 @@ import com.yourzeromax.zympro.Utils.NetUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.btn_login)
@@ -28,7 +32,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     EditText etPassword;
 
     SharedPreferences sharedPreferences;
-
+        EventHandler eventHandler ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +72,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void editTextInit() {
@@ -151,5 +160,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         startActivity(intent);
         finish();
     }
+
 
 }

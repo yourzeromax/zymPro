@@ -14,6 +14,8 @@ import org.litepal.LitePalApplication;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.smssdk.SMSSDK;
+
 /**
  * Created by yourzeromax on 2017/11/3.
  */

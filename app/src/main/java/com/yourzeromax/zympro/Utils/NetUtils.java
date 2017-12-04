@@ -74,9 +74,14 @@ public class NetUtils {
             @Override
             public void onResponse(Response response) throws IOException {
                 String s = response.body().string();
-                float version = Float.parseFloat(s);
+                try{
+                JSONObject jsonObject = new JSONObject(s);
+                String v = jsonObject.getString("志愿谋");
+                float version = Float.parseFloat(v);
                 listener.saveVersion(version);
-                listener.isNeedUpdate();
+                listener.isNeedUpdate();}catch (JSONException e){
+                    e.printStackTrace();
+                }
             }
         });
     }
