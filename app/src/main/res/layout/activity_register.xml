@@ -24,6 +24,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/login_btn"
             android:text="注册"
+            android:enabled="true"
+            android:clickable="false"
             android:textColor="#ffffff"
             android:textSize="@dimen/login_btn_text_size" />
 
@@ -82,8 +84,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/login_btn"
+                android:background="@drawable/login_btn_unclick"
                 android:text="获取验证码"
+                android:clickable="false"
+                android:enabled="false"
                 android:textColor="#ffffff"
                 android:textSize="16dp" />
         </LinearLayout>
