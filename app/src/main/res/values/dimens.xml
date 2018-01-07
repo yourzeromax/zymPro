@@ -5,12 +5,7 @@
     <dimen name="line_margin_dimen">20dp</dimen>
     <dimen name="login_third_dimen">60dp</dimen>
     <dimen name="fixed_height_bottom_padding">3dp</dimen>
-
-
-
-
-
-
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>
