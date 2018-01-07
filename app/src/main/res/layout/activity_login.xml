@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/backgroud_login"
     tools:context="com.yourzeromax.zympro.UI.LoginActivity">
 
     <RelativeLayout
@@ -51,6 +52,9 @@
             android:layout_above="@id/et_password"
             android:layout_marginBottom="8dp"
             android:hint="请输入账号/手机号"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             android:singleLine="true" />
 
         <EditText
@@ -59,6 +63,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/btn_login"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/MyEditText"
             android:layout_marginBottom="8dp"
             android:hint="请输入密码"
             android:inputType="textPassword"
@@ -70,7 +77,7 @@
             android:layout_above="@id/et_count"
             android:layout_alignStart="@id/et_count"
             android:layout_marginBottom="@dimen/login_btn_text_size"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/logo" />
     </RelativeLayout>
 
 
@@ -92,6 +99,7 @@
             <TextView
                 android:id="@+id/tv_thirdLogin"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/third_login" />
@@ -109,22 +117,25 @@
                 android:layout_marginEnd="@dimen/login_third_dimen"
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@id/weixin"
-                android:drawableTop="@mipmap/ic_launcher_round"
+                android:drawableTop="@mipmap/qq"
                 android:text="@string/QQ"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
                 android:id="@+id/weixin"
-                android:drawableTop="@mipmap/ic_launcher_round"
+                android:drawableTop="@mipmap/wechat"
                 android:text="@string/weixin"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
-                android:drawableTop="@mipmap/ic_launcher_round"
+                android:drawableTop="@mipmap/weibo"
                 android:text="@string/weibo"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_marginStart="@dimen/login_third_dimen"
                 android:layout_centerVertical="true"

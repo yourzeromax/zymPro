@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/action_collection"
+            android:icon="@mipmap/nav_collection"
+            android:title="收藏" />
+        <item
+            android:id="@+id/action_report"
+            android:icon="@mipmap/nav_report"
+            android:title="报告" />
+        <item
+            android:id="@+id/action_integral"
+            android:icon="@mipmap/nav_integral"
+            android:title="积分" />
+        <item
+            android:id="@+id/action_vip"
+            android:icon="@mipmap/nav_vip"
+            android:title="VIP" />
+        <item
+            android:id="@+id/action_suggestion"
+            android:icon="@mipmap/nav_sugestion"
+            android:title="建议" />
+        <item
+            android:id="@+id/action_we"
+            android:icon="@mipmap/nav_we"
+            android:title="我们" />
+        <item
+            android:id="@+id/action_help"
+            android:icon="@mipmap/nav_help"
+            android:title="帮助" />
+        <item
+            android:id="@+id/action_setting"
+            android:icon="@mipmap/nav_setting"
+            android:title="设置" />
+
+    </group>
+
+</menu>

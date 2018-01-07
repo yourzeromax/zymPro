@@ -3,8 +3,8 @@
     <dimen name="login_btn_text_size">20dp</dimen>
 
     <dimen name="line_margin_dimen">20dp</dimen>
-    <dimen name="login_third_dimen">40dp</dimen>
-
+    <dimen name="login_third_dimen">60dp</dimen>
+    <dimen name="fixed_height_bottom_padding">3dp</dimen>
 
 
 

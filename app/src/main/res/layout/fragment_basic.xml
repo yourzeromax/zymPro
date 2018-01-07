@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="2"
+        android:background="#ffffff">
+
+        <View
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/search_shape" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:drawableEnd="@mipmap/icon_voice"
+            android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/icon_search"
+            android:gravity="center_vertical"
+            android:text="重庆大学"
+            android:textSize="17dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp">
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/choose_speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="选专业"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_speciality"
+                app:drawable_height="80dp"
+                app:drawable_width="80dp" />
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/check_schools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:text="查高校"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_schools"
+                app:drawable_height="80dp"
+                app:drawable_width="80dp" />
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/check_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="省控线"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_score"
+                app:drawable_height="80dp"
+                app:drawable_width="80dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
+
+                <com.yourzeromax.zympro.MyViews.DrawableTextView
+                    android:id="@+id/tv_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:drawablePadding="20dp"
+                    android:gravity="center_vertical"
+                    android:text="智能推荐"
+                    app:drawableSrc="@mipmap/basic_recommend"
+                    app:drawable_height="60dp"
+                    app:drawable_width="60dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_recommend"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="为您推荐最优的志愿" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
+
+                <com.yourzeromax.zympro.MyViews.DrawableTextView
+                    android:id="@+id/tv_policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:drawablePadding="20dp"
+                    android:gravity="center_vertical"
+                    android:text="政策解读"
+                    app:drawableSrc="@mipmap/basic_policy"
+                    app:drawable_height="60dp"
+                    app:drawable_width="60dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_policy"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="为您解读最新的政策" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
+
+                <com.yourzeromax.zympro.MyViews.DrawableTextView
+                    android:id="@+id/tv_special"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:drawablePadding="20dp"
+                    android:gravity="center_vertical"
+                    android:text="特殊招生"
+                    app:drawableSrc="@mipmap/basic_special"
+                    app:drawable_height="60dp"
+                    app:drawable_width="60dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_special"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="服务各种招生类别" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
+
+                <com.yourzeromax.zympro.MyViews.DrawableTextView
+                    android:id="@+id/tv_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:drawablePadding="20dp"
+                    android:gravity="center_vertical"
+                    android:text="名词解释"
+                    app:drawableSrc="@mipmap/basic_word"
+                    app:drawable_height="60dp"
+                    app:drawable_width="60dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_word"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="做您最贴心的助手" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
