@@ -1,8 +1,5 @@
 package com.yourzeromax.zympro.Utils;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.MediaType;
@@ -13,8 +10,6 @@ import com.squareup.okhttp.Response;
 import com.yourzeromax.zympro.Application.C;
 
 import org.json.JSONObject;
-
-import java.io.IOException;
 
 /**
  * Created by yourzeromax on 2017/12/4.
