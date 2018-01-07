@@ -102,7 +102,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() >= 1) {
-                    etCount.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.error), null);
+                    etCount.setCompoundDrawablesWithIntrinsicBounds(null, null, getDrawable(R.mipmap.error), null);
                 } else {
                     etCount.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 }
@@ -122,7 +122,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() >= 1) {
-                    etPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.mipmap.error), null);
+                    etPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, getDrawable(R.mipmap.error), null);
                 } else {
                     etPassword.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 }
@@ -148,7 +148,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }
                 return false;
             }
-
         });
 
         etPassword.setOnTouchListener(new View.OnTouchListener() {
