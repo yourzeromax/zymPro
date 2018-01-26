@@ -55,11 +55,6 @@
         <activity android:name=".UI.TestActivity"/>
         <activity android:name=".UI.RefreshActivity">
         </activity>
-        <activity
-            android:name=".UI.SearchSchoolActivity"
-            android:label="@string/title_activity_search_school"
-            android:theme="@style/AppTheme">
-        </activity>
     </application>
 
 </manifest>

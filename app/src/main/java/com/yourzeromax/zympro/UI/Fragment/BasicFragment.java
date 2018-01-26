@@ -1,7 +1,6 @@
 package com.yourzeromax.zympro.UI.Fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yourzeromax.zympro.R;
-import com.yourzeromax.zympro.UI.SearchSchoolActivity;
 
 /**
  * Created by yourzeromax on 2017/11/5.
@@ -35,8 +33,8 @@ public class BasicFragment extends Fragment {
         tvShow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getActivity(), SearchSchoolActivity.class);
-                startActivity(intent1);
+//                Intent intent1=new Intent(getActivity(), SearchSchoolActivity.class);
+//                startActivity(intent1);
             }
                 });
         tvShow2.setOnClickListener(new View.OnClickListener() {

@@ -16,6 +16,7 @@ import com.yourzeromax.zympro.R;
 
 /**
  * Created by yourzeromax on 2017/11/8.
+ *   
  */
 
 public class DrawableTextView extends AppCompatTextView {
