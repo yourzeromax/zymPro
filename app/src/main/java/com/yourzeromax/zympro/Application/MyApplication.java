@@ -20,7 +20,7 @@ import cn.smssdk.SMSSDK;
  * Created by yourzeromax on 2017/11/3.
  */
 
-public class MyApplication extends MobApplication {
+public class MyApplication extends LitePalApplication {
 
 
     /**
