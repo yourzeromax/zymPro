@@ -1,6 +1,8 @@
 package com.yourzeromax.zympro.UI;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
@@ -16,6 +18,7 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.yourzeromax.zympro.R;
+import com.yourzeromax.zympro.Utils.CountUtils;
 import com.yourzeromax.zympro.Utils.Encrypt;
 import com.yourzeromax.zympro.Utils.LoginUtils;
 import com.yourzeromax.zympro.Utils.OtherUtils;
@@ -45,16 +48,15 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Bind(R.id.et_verification)
     EditText etVerification;
-    @Bind(R.id.et_password)
-    EditText etPassword;
 
     String phoneNumber;
-boolean checkVerification = false;
+    boolean checkVerification = false;
     public static final int CLICKABLE = 0;
     public static final int UNCLICKABLE = 1;
 
-    public static final int CHECKHASCOUNT=2;
+    final MyCountDownTimer myCountDownTimer = new MyCountDownTimer(60000, 1000);
 
+    private CountUtils countUtils;
     //容易内存泄漏
     Handler handler = new Handler() {
         @Override
@@ -69,16 +71,6 @@ boolean checkVerification = false;
                     btnVerification.setEnabled(false);
                     btnVerification.setBackground(getResources().getDrawable(R.drawable.login_btn_unclick));
                     break;
-                case CHECKHASCOUNT:
-                    if(msg.arg1==4){            //如果未注册
-                        Toast.makeText(RegisterActivity.this, "恭喜您，可以注册", Toast.LENGTH_SHORT).show();
-                        btnVerification.setBackground(getResources().getDrawable(R.drawable.login_btn));
-                        btnVerification.setEnabled(true);
-                    }else {
-                        Toast.makeText(RegisterActivity.this, "您的账号已被注册！", Toast.LENGTH_SHORT).show();
-                        btnVerification.setBackground(getResources().getDrawable(R.drawable.login_btn_unclick));
-                        btnVerification.setEnabled(false);
-                    }
             }
         }
     };
@@ -86,10 +78,11 @@ boolean checkVerification = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       //  SMSSDK.setAskPermisionOnReadContact(boolShowInDialog);
+        //  SMSSDK.setAskPermisionOnReadContact(boolShowInDialog);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+        countUtils = new CountUtils(this);
         listenerInit();
         setSMSSDK();
     }
@@ -100,7 +93,7 @@ boolean checkVerification = false;
         SMSSDK.unregisterEventHandler(eventHandler);
     }
 
-    private void listenerInit(){
+    private void listenerInit() {
         btnRegister.setOnClickListener(this);
         btnVerification.setOnClickListener(this);
         etCount.addTextChangedListener(new TextWatcher() {
@@ -111,26 +104,23 @@ boolean checkVerification = false;
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if(charSequence.length()==11){//如果输入了11位,判断账号是否存在
-                        Log.d(TAG, "onTextChanged: ");
-                        final String number = new String(new StringBuilder(charSequence));
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                int status = LoginUtils.hasCount(number);
-                                Log.d(TAG, "run: "+String.valueOf(status));
-                                Message message = Message.obtain();
-                                message.what=CHECKHASCOUNT;
-                                        message.arg1=status;
-                                        handler.sendMessage(message);
-                            }
-                        }).start();
-
-                    }else{
-                        Message message = Message.obtain();
-                        message.what=UNCLICKABLE;
-                        handler.sendMessage(message);
+                if (charSequence.length() == 11) {//如果输入了11位,判断账号是否存在
+                    Log.d(TAG, "onTextChanged: ");
+                    final String number = new String(new StringBuilder(charSequence));
+                    if (countUtils.hasAcount(number)) {
+                        Toast.makeText(RegisterActivity.this, "用户已经存在", Toast.LENGTH_SHORT).show();
+                        Message msg = Message.obtain();
+                        msg.what = UNCLICKABLE;
+                        handler.sendMessage(msg);
+                        //处理按钮为不可点击的状态
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "恭喜您，该账户可以注册！", Toast.LENGTH_SHORT).show();
+                        Message msg = Message.obtain();
+                        msg.what = CLICKABLE;
+                        handler.sendMessage(msg);
+                        //可点击状态
                     }
+                }
             }
 
             @Override
@@ -144,17 +134,12 @@ boolean checkVerification = false;
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_verification:
+                myCountDownTimer.start();
                 sendVerification();
                 break;
             case R.id.btn_zc:
-                String password = etPassword.getText().toString().trim();
                 String count = etCount.getText().toString().trim();
-                if(password.length()<6){
-                    Toast.makeText(this, "请检查输入格式！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                // checkVerification();
-                signUp(count,password);
+                signUp(count);
                 break;
         }
     }
@@ -162,37 +147,18 @@ boolean checkVerification = false;
     public void setSMSSDK() {
         eventHandler = new EventHandler() {
             public void afterEvent(int event, int result, Object data) {
-                if (data instanceof Throwable) {
-                    Throwable throwable = (Throwable) data;
-                    final String msg = throwable.getMessage();
-                    try {
-                        JSONObject object = new JSONObject(throwable.getMessage());
-                        String des = object.optString("detail");//错误描述
-                        int status = object.optInt("status");//错误代码
-                        Log.d(TAG, "afterEvent: " + status);
-                        if (status == 468) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(RegisterActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    //回调完成
+                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                        Log.d(TAG, "afterEvent: " + "提交验证码成功");
+                        toNextActivity();
+                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                        Log.d(TAG, "afterEvent: " + "获取验证码成功");
+                    } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+                        //返回支持发送验证码的国家列表
                     }
                 } else {
-                    if (result == SMSSDK.RESULT_COMPLETE) {
-                        if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    checkVerification=true;
-                                    Toast.makeText(RegisterActivity.this, "success", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
-                    }
+                    ((Throwable) data).printStackTrace();
                 }
             }
         };
@@ -205,13 +171,7 @@ boolean checkVerification = false;
             Toast.makeText(this, "请输入正确的号码！", Toast.LENGTH_SHORT).show();
         } else {
             SMSSDK.getVerificationCode("86", phoneNumber);
-            Toast.makeText(this, "已发送验证码", Toast.LENGTH_SHORT).show();
-            Message msg = Message.obtain();
-            msg.what = UNCLICKABLE;
-            handler.sendMessage(msg);
-            Message msg2 = Message.obtain();
-            msg2.what = CLICKABLE;
-            handler.sendMessageDelayed(msg2, 5000);
+            //  Toast.makeText(this, "已发送验证码", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -221,59 +181,56 @@ boolean checkVerification = false;
         SMSSDK.submitVerificationCode("+86", phoneNumber, verification);
     }
 
-    public void signUp(String count,String password) {
-        String send_appKey;
-        String send_password;
-
+    public void signUp(String count) {
         checkVerification();
-        if(!checkVerification){
-            Toast.makeText(this, "验证码不正确", Toast.LENGTH_SHORT).show();
-            return ;
+        if (!checkVerification) {
+            //  Toast.makeText(this, "验证码不正确", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if(!OtherUtils.isPhoneNumber(count)){//控制为正确的电话号码
+        if (!OtherUtils.isPhoneNumber(count)) {//控制为正确的电话号码
             Toast.makeText(this, "请输入正确的电话号码！", Toast.LENGTH_SHORT).show();
             return;
         }
-       // count= count.substring(0,8);
-        long countNum = Long.parseLong(count);
-        long appkey = System.currentTimeMillis() + countNum;
-        String appKey = String.valueOf(appkey);
-        byte[] app_key = Encrypt.encrypt(appKey.getBytes(), count);
-        byte[] pass_word = Encrypt.encrypt(password.getBytes(), count);
-        try {
-            send_appKey = new String(app_key, "ISO-8859-1");
-            send_password = new String(pass_word, "ISO-8859-1");
-            LoginUtils.signUp(send_appKey, count, send_password, new Callback() {
-                @Override
-                public void onFailure(Request request, IOException e) {
+    }
 
-                }
-
-                @Override
-                public void onResponse(Response response) throws IOException {
-                    String string = response.body().string();
-                    Log.d(TAG, "onResponse: " + string);
-                    try {
-
-                        JSONObject object = new JSONObject(string);
-
-                        int status = object.getInt("statusNumber");
-                        Log.d(TAG, "onResponse: " + status);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
+    private void toNextActivity() {
+        String count = etCount.getText().toString().trim();
+        Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
+        intent.putExtra("count", count);
+        startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
-      //  super.onBackPressed();
+        //  super.onBackPressed();
         finish();
+    }
+
+    private class MyCountDownTimer extends CountDownTimer {
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        //计时过程
+        @Override
+        public void onTick(long l) {
+            //防止计时过程中重复点击
+            btnVerification.setClickable(false);
+            btnVerification.setBackground(getResources().getDrawable(R.drawable.login_btn_unclick));
+            btnVerification.setText(l / 1000 + "s");
+
+        }
+
+        //计时完毕的方法
+        @Override
+        public void onFinish() {
+            //重新给Button设置文字
+            btnVerification.setText("获取验证码");
+            //设置可点击
+            btnVerification.setClickable(true);
+            btnVerification.setBackground(getResources().getDrawable(R.drawable.login_btn));
+        }
     }
 }

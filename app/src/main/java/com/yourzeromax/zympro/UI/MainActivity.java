@@ -92,9 +92,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void fragmentInit() {
         adapter = new HomeFragmentAdapter(getSupportFragmentManager(), this);
-        adapter.add(new BasicFragment());
-        adapter.add(new CommunityFragment());
-        adapter.add(new FunctionFragment());
+      //  adapter.add(new BasicFragment());
+      //  adapter.add(new CommunityFragment());
+     //   adapter.add(new FunctionFragment());
         mViewPager.setAdapter(adapter);
     }
 
