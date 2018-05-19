@@ -134,7 +134,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_yhzc:
+            case R.id.tv_yhzc:          //用户注册
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 break;
@@ -142,8 +142,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 login();
                 break;
         }
-
-
     }
 
     private void login() {
