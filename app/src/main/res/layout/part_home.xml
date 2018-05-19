@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:background="@color/home_line"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:text="教育学"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"/>
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:text="(一个专业类，四个专业)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"/>
+        <View
+            android:background="@color/home_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+</merge>

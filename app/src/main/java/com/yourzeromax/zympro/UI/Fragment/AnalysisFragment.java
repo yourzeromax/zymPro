@@ -9,18 +9,10 @@ import android.view.ViewGroup;
 
 import com.yourzeromax.zympro.R;
 
-/**
- * Created by yourzeromax on 2017/11/6.
- */
-
-public class FunctionFragment extends Fragment {
-    public FunctionFragment() {
-    }
-
+public class AnalysisFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_function, null);
-        return view;
+        return  inflater.inflate(R.layout.fragment_analysis,null);
     }
 }

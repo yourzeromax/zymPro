@@ -12,5 +12,6 @@
     <color name="black">#000000</color>
     <color name="second">#a5a8a8</color>
 
+    <color name="home_line">#000000</color>
 
 </resources>

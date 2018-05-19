@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="190dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/home_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/home_schools"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="学校"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_speciality"
+                app:drawable_height="50dp"
+                app:drawable_width="50dp" />
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/home_profession"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="专业"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_schools"
+                app:drawable_height="50dp"
+                app:drawable_width="50dp" />
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/home_students"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="招生"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_schools"
+                app:drawable_height="50dp"
+                app:drawable_width="50dp" />
+
+            <com.yourzeromax.zympro.MyViews.DrawableTextView
+                android:id="@+id/home_volunteer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="志愿"
+                app:drawableLocation="top"
+                app:drawableSrc="@mipmap/basic_banner_score"
+                app:drawable_height="50dp"
+                app:drawable_width="50dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/home_hot_school"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="热门学校" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@id/home_hot_school"
+                android:background="@color/home_line" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/home_hot_school"
+                android:background="@color/home_line" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/school_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:src="@color/smssdk_gray" />
+
+            <TextView
+                android:id="@+id/school_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/school_img"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/school_img"
+                android:text="重庆大学" />
+
+            <TextView
+                android:id="@+id/shool_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/school_img"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/school_img"
+                android:text="排名： 33" />
+
+            <TextView
+                android:id="@+id/school_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/school_img"
+                android:layout_marginRight="30dp"
+                android:text="重庆市" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_toLeftOf="@id/school_location"
+                android:background="@color/home_line" />
+
+            <TextView
+                android:id="@+id/school_cateloge_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/school_img"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:text="双一流" />
+
+            <TextView
+                android:id="@+id/school_cateloge_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/shool_rank"
+                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@id/shool_rank"
+                android:text="理工科" />
+        </RelativeLayout>
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/home_line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/home_hot_profession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="热门专业" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@id/home_hot_profession"
+                android:background="@color/home_line" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/home_hot_profession"
+                android:background="@color/home_line" />
+        </RelativeLayout>
+
+        <include layout="@layout/part_home"/>
+        <include layout="@layout/part_home"/>
+        <include layout="@layout/part_home"/>
+        <include layout="@layout/part_home"/>
+    </LinearLayout>
+</ScrollView>

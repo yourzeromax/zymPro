@@ -37,6 +37,7 @@
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,13 +48,12 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".UI.LoginActivity"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize">
-
-        </activity>
-        <activity android:name=".UI.RegisterActivity"></activity>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden|adjustResize"></activity>
+        <activity android:name=".UI.RegisterActivity" />
         <activity android:name=".UI.TestActivity" />
-        <activity android:name=".UI.RefreshActivity"></activity>
-        <activity android:name=".UI.Register2Activity"></activity>
+        <activity android:name=".UI.RefreshActivity" />
+        <activity android:name=".UI.Register2Activity" />
+        <activity android:name=".UI.ProfessionActivity"></activity>
     </application>
 
 </manifest>
